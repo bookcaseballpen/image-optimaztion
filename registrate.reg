@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\shell\Optimize Images\command]
+"(Default)"="C:\Image Optimization\optimize.bat" "%1"
