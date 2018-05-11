@@ -1,3 +1,4 @@
 REM Turn off displaying actual commands 
+del /s /q  "C:\Image Optimization"
 md "C:\Image Optimization"
-for %%i in (*) do copy %%i "C:\Image Optimization"
+xcopy /E . "C:\Image Optimization"
