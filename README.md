@@ -9,8 +9,7 @@ This tool can optimize png and jpg images for web usage.
 ## How to install
 
 * download the repo to your local computer
-* run the install.bat
-* run the registrate.reg
+* run the install.bat as admin
 
 ## Use
 
