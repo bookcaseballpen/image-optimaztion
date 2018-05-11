@@ -5,9 +5,10 @@ This tool can optimize png and jpg images for web usage.
 * only tested on windows 10
 
 ## How to install
+
 * download the repo to your local computer
 * run the install.bat
-* run the registrate.reg 
+* run the registrate.reg
 
 ## Use
 
