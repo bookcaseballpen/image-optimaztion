@@ -1,21 +1,22 @@
 REM Turn off displaying actual commands 
-@echo none 
-REM Move to target directory
-cd %1 
+@echo off
+echo %1
 
+IF EXIST %1%/ (
+    REM @echo %1
+    cd %1
+    md optmz
+    for /r %%i  in (*.jpg) do "C:\Image Optimization\cjpeg.exe" -quality 75 "%%i" > "%%~pi\optmz\%%~ni%%~xi" 
+    for /r %%i in (*.png) do "C:\Image Optimization\pngquant.exe" --force --verbose 256 "%%i" -o "%%~pi\optmz\%%~ni%%~xi"
 
-REM Cycle through .jpg files and run JpegTran with the optimize, progressive, and copy none options
-for /r %%i  in (*.jpg) do "C:\Image Optimization\jpegtran.exe" -optimize -progressive -copy none "%%i" "%%i.lossless" 
-REM Remove temporary directory 
-for /r %%i  in (*.jpg) do move /y "%%i.lossless" "%%i"
-
-REM Cycle through .jpg files and run JpegTran with the optimize, progressive, and copy none options
-for /r %%i  in (*.jpg) do "C:\Image Optimization\cjpeg.exe" -quality 75 "%%i" > "%%i.lossy" 
-REM Remove temporary directory 
-for /r %%i  in (*.jpg) do move /y "%%i.lossy" "%%i"
-
-REM Cycle through .png files and run PngOut with default settings overwriting originals 
-for /r %%i in (*.png) do "C:\Image Optimization\pngout.exe" "%%i" 
-for /r %%i in (*.png) do "C:\Image Optimization\pngquant.exe" --force --verbose 256 "%%i" --ext "%%i" 
-
-REM add in pause here to keep the command prompt open if you're debugging 
+) ELSE (
+    IF "%~x1" == ".png" (
+        REM @echo I am a PNG
+        "C:\Image Optimization\pngquant.exe" --force --verbose 256 "%1"
+        REM "C:\Image Optimization\pngout.exe" "%~p1%~n1-fs8%~x1" 
+    ) ELSE IF "%~x1" == ".jpg" (
+        REM @echo I am a JPEG
+        "C:\Image Optimization\cjpeg.exe" -quality 75 "%1" >  "%~p1%~n1-fs8%~x1"  
+    )
+)
+pause
