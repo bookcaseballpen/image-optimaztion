@@ -2,7 +2,9 @@
 
 This tool can optimize png and jpg images for web usage.
 
-* only tested on windows 10
+ Reference reading: [Automating image optimization by Addy Osmani](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/automating-image-optimization/)
+
+* only tested on windows10
 
 ## How to install
 
