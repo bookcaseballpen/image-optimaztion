@@ -1,6 +1,5 @@
 REM Turn off displaying actual commands 
 @echo on
-echo %1
 
 IF EXIST %1%/ (
     REM @echo %1
@@ -20,4 +19,3 @@ IF EXIST %1%/ (
         "C:\Image Optimization\tools\cjpeg.exe" -quality 75 %1   >  "%~p1%~n1-fs8%~x1"  
     )
 )
-pause

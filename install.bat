@@ -1,5 +1,5 @@
 REM Turn off displaying actual commands
-@echo off
+@echo on
 set path=%~dp0
 rmdir /s /q  "C:\Image Optimization"
 md "C:\Image Optimization"
